@@ -1,0 +1,29 @@
+{
+  "name": "logbook",
+  "version": "1.0.0",
+  "description": "Aj logbook",
+  "main": "server.js",
+  "scripts": {
+    "aj": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadowTitan123/Logbook.git"
+  },
+  "keywords": [
+    "ajlogbook",
+    "logbook."
+  ],
+  "author": "Adil , Aaqil & Zabeeh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShadowTitan123/Logbook/issues"
+  },
+  "homepage": "https://github.com/ShadowTitan123/Logbook#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
+  }
+}
