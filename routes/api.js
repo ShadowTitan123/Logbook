@@ -4,12 +4,17 @@ const mysqlconnect = require('../Database/DbConnect.js');
 
 
 
-router.get('/login',(req, res) =>{
+router.get('/login', (req, res) => {
 
-mysqlconnect.connect();
-res.send('db connected');
+   
+    res.send('db connected');
+
+});
+
+router.get('/dashboard', (req, res) => {
 
 
+    res.send('dashboard');
 
 });
 
