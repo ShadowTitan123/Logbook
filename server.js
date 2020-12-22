@@ -59,7 +59,7 @@ app.set('view engine','ejs');
 
 
 //Routes 
-app.get('/login', require('./routes/api'))
+app.post('/login', require('./routes/api'))
 app.get('/dashboard', require('./routes/api'))
 app.get('/logout', require('./auth/auth'))
 

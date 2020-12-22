@@ -5,13 +5,35 @@ const { ensureAuth , ensureGuest } = require('../middleware/authenticate'); // d
 
 
 
-router.get('/login', (req, res) => {
-    res.send('db connected');
+
+
+router.post('/login', (req, res) => {
+   
+  
+    const email = req.body.email;
+    const password = req.body.password;
+    console.log(email + password);
+    //Check if User Exists 
+    const checkUser = "Select * from `tbl_admin` where admin_email =  ? and admin_password = ? limit 1 ";
+    mysqlconnect.query(checkUser, [email,password], function (err, rows, fields) {
+        if (err) throw err
+        else if (rows.length > 0){
+            req.session.user = email;
+            req.session.save();
+           res.redirect('/dashboard');
+        }else{
+          const message = {
+              message: "Wrong Credentials/User Not Found",
+              status: false
+          }
+          res.json(message);
+        }
+    })
 
 });
 
 router.get('/dashboard',ensureAuth,(req, res) => {
-    res.render('dashboard');
+    res.render('dashboard',{ admin_name : req.session.user || req.user.firstName});  // req.session contains local login session user ,req.user contains from google passportjs auth session
 });
 
 
