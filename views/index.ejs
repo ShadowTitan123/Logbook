@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="">
+    <link href="main.css" rel="stylesheet"></head>
+  </head>
+  <body>
+    <section class="login-block" style="background-image: url(assets/images/blue.svg)">
+      <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+          <div class="col-12 col-md-8 col-lg-7 col-xl-5 text-center">
+            <div class="login-box">
+
+              <form id="login-form">
+                <div class="row">
+                  <div class="col">
+                    <h1>Log In</h1>
+                  </div>
+                </div>
+                <div class="col mt-4">
+                  <input type="text" class="form-control" name="email" placeholder="Email" required/>
+                </div>
+              
+                <div class="col mt-4">
+                  <input type="password" name="password"  class="form-control mb-1" placeholder="Password" required/>
+                  <p class="text-right"><span id="recover-pwd ">Recover Password</span></p>
+                </div>
+                
+                <div class="col">
+                    <button class="btn btn-outline-primary" type="submit">Submit</button>
+                </div>
+              </form>
+
+              <form id="forgot-pwd-form" >
+                <div class="row">
+                  <div class="col">
+                    <h1>Forgot Password</h1>
+                  </div>
+                </div>
+                <div class="col mt-4">
+                  <input type="text" class="form-control" placeholder="Email" required/>
+                  <p class="text-right"><span id="back-login">Back to Login</span></p>
+                </div>
+                <div class="col">
+                    <button class="btn btn-outline-secondary" type="button">Send Mail</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ==" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="Links/BaseURL.js"></script>
+    <script src="postApi/fetch.js"></script>
+    <script type="text/javascript">
+	    $(function() {
+	     $("#forgot-pwd-form").css('display','none');
+    
+	     $( "#recover-pwd" ).click(function() {
+	    	 $("#login-form").css('display','none');
+         $("#forgot-pwd-form").css('display','block');
+       });
+    
+	     $( "#back-login" ).click(function() {
+	    	 $("#forgot-pwd-form").css('display','none');
+         $("#login-form").css('display','block');
+       });
+    
+    });
+
+    
+
+
+
+
+
+
+	</script>
+  </body>
+</html>

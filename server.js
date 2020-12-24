@@ -54,23 +54,36 @@ app.use(passport.session())
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+// Set ejs as view engine
 app.set('view engine','ejs');
 
 
 
-//Routes 
-app.post('/login', require('./routes/api'))
+//Routes (Get)
 app.get('/dashboard', require('./routes/api'))
 app.get('/logout', require('./auth/auth'))
 
+
+//Routes (Post)
+app.post('/login', require('./routes/api'))
+app.post('/storeWorkOrder', require('./routes/api'))
+
+
+//Google auth Routes
 app.get('/google/auth', require('./auth/auth'))
 app.get('/google/callback', require('./auth/auth'))
 
-//Ejs routes
 
+
+//Ejs Render routes
 app.get('/ejs',(req, res)=>{
-  res.render('test');
+  res.render('dashboard');
 })
+
+app.get('/addwork',(req, res)=>{
+  res.render('addwork');
+})
+
 
 
 

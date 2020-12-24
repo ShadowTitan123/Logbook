@@ -27,10 +27,33 @@ router.post('/login', (req, res) => {
               status: false
           }
           res.json(message);
+       
         }
     })
 
 });
+
+
+
+router.post('/storeWorkOrder', (req, res) => {
+   
+  
+    const workOrder = req.body.workOrder;
+    const json_work = JSON.parse(workOrder);
+    console.log(json_work);
+
+
+
+    //Store Data to DB
+
+
+   //Send Response to client 
+    res.json(json_work);
+   
+});
+
+
+
 
 router.get('/dashboard',ensureAuth,(req, res) => {
     res.render('dashboard',{ admin_name : req.session.user || req.user.firstName});  // req.session contains local login session user ,req.user contains from google passportjs auth session
